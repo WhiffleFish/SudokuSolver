@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import mnist
 import tensorflow as tf
 from tensorflow import keras
@@ -11,8 +10,8 @@ X_train,y_train,X_test,y_test = (mnist.train_images(),
                                  mnist.test_labels())
 
 # Normalize Data
-X_train = X_train/255
-X_test = X_test/255 
+X_train = (X_train/255)
+X_test = (X_test/255)
 
 X_train = X_train.reshape(*X_train.shape,1)
 X_test = X_test.reshape(*X_test.shape,1)
@@ -58,4 +57,4 @@ history = model.fit(X_train,y_train_onehot,
                     epochs=epochs, verbose=2, 
                     validation_data=(X_test,y_test_onehot))
 
-model.save('models/DigitRecognizerModel')
+model.save(r'models\DigitRecognizerModel')
