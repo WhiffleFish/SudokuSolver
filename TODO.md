@@ -6,7 +6,7 @@
     - Map upper cell boundary to straight line
 
 # IDEAS
-- Determine cell edges through canny edge detection
+- https://aishack.in/tutorials/sudoku-grabber-opencv-detection/
 ## For actual pictures of Sudoku puzzle
 - Draw bounding lines around all cells
     - Linear Transform on image so that bouding lines form square

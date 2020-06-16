@@ -37,7 +37,8 @@ def augment_img(image):
 
 
 print('Augmenting Image Data...')
-aug_X_train = np.array([augment_img(X_train[i]) for i in range(X_train.shape[0])])
+aug_X_train = [augment_img(X_train[i]) for i in range(X_train.shape[0])]
+aug_X_train = np.array(aug_X_train)
 
 X_train_input = aug_X_train.reshape(*aug_X_train.shape, 1)
 X_test_input = X_test.reshape(*X_test.shape, 1)
@@ -48,7 +49,8 @@ y_test_onehot = tf.one_hot(y_test, depth=10)
 
 
 # CONSTRUCT CNN MODEL
-# Architecture from https://www.kaggle.com/yassineghouzam/introduction-to-cnn-keras-0-997-top-6
+# Architecture from:
+# https://www.kaggle.com/yassineghouzam/introduction-to-cnn-keras-0-997-top-6
 model = keras.Sequential()
 model.add(keras.layers.Conv2D(filters=32, kernel_size=(5, 5), padding='Same',
                               activation='relu', input_shape=(28, 28, 1)))
