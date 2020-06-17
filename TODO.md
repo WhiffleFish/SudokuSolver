@@ -8,6 +8,7 @@
 # IDEAS
 - https://aishack.in/tutorials/sudoku-grabber-opencv-detection/
 ## For actual pictures of Sudoku puzzle
+- HAAR Cascade?
 - Draw bounding lines around all cells
     - Linear Transform on image so that bouding lines form square
     - https://www.geeksforgeeks.org/line-detection-python-opencv-houghline-method/

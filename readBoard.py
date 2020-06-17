@@ -1,5 +1,4 @@
 import cv2 as cv
-import logging
 import numpy as np
 from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
@@ -75,8 +74,6 @@ def check_row(board, pos):
     num = board[pos[0]][pos[1]]
     row = board[pos[0]].copy()
     row.pop(pos[1])
-    if num in row:
-        logging.debug('ROW FAIL')
     return num not in row
 
 
@@ -84,8 +81,6 @@ def check_col(board, pos, debug=False):
     num = board[pos[0]][pos[1]]
     col = [row[pos[1]] for row in board.copy()]
     col.pop(pos[0])
-    if num in col:
-        logging.debug('COL FAIL')
     return num not in col
 
 
@@ -103,8 +98,7 @@ def check_block(board, pos, debug=False):
     rel_index = rel_coord[0]*3 + rel_coord[1]
     assert flat_block[rel_index] == num
     flat_block.pop(rel_index)
-    if num in flat_block:
-        logging.debug('BLOCK FAIL')
+
     return num not in flat_block
 
 
@@ -129,7 +123,6 @@ def solve_board(board, c=(0, 0)):
     while True:
         board[current_coord[0]][current_coord[1]] += 1
 
-        logging.debug(np.array(board))
         if check_num(board, current_coord):
             resulting_board = solve_board(board, current_coord)
             flattened_result_board = [num for row in resulting_board for num in row]
@@ -137,5 +130,5 @@ def solve_board(board, c=(0, 0)):
                 return resulting_board
         if board[current_coord[0]][current_coord[1]] >= 9:
             board[current_coord[0]][current_coord[1]] = 0
-            logging.debug("RESET")
+
             return board
