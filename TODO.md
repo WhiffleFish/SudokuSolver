@@ -1,12 +1,22 @@
 # TODO
 - Operate in venv
+- Capture 70+ images of Sudoku boards on paper in different environments
+- Label captured images for semantic segmentation
 - Isolate Board for oblique view angle
 - Account for page curvature 
     - straight cell boundaries become curved
     - Map upper cell boundary to straight line
 
 # IDEAS
-- https://aishack.in/tutorials/sudoku-grabber-opencv-detection/
+- Board grab through floodfill
+    - https://aishack.in/tutorials/sudoku-grabber-opencv-detection/
+- Augmented Reality on Sudoku Puzzle usingComputer Vision and Deep Learning
+    - https://www.ijitee.org/wp-content/uploads/papers/v8i11S2/K102209811S219.pdf
+- MATLAB Semantic Segmentation 
+    - https://blogs.mathworks.com/deep-learning/2018/11/15/sudoku-solver-image-processing-and-deep-learning/
+- OpenCV Perspective Transformation
+    - https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html 
+
 ## For actual pictures of Sudoku puzzle
 - HAAR Cascade?
 - Draw bounding lines around all cells
